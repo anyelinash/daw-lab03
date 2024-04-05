@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa:wght@300;500&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&family=Nunito:wght@900&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+        .card {
+            margin: 0 auto; /* Para centrar la card */
+            max-width: 400px; /* Ancho máximo de la card */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra */
+        }
+        .card h1 {
+            color: #9FC7AA; /* Cambiar color del título */
+            font-weight: bold;
+        }
+        .form-group {
+            margin-bottom: 20px; /* Espacio entre los campos */
+        }
+        .form-group label {
+            font-weight: bold; /* Estilo para etiquetas de los campos */
+        }
+        .form-control {
+            border-radius: 5px; /* Bordes redondeados para los campos */
+        }
+        .btn{
+            width: 100%; /* Botón ocupa todo el ancho */
+            background-color: #9FC7AA;
+            color: #000;
+            border: 0;
+        }
+        .btn:hover{
+            background-color: #000;
+            color: beige;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <h1 class="text-center">Inicio de Sesión</h1>
+            <hr>
+            <form action="/matriculas" method="post">
+                <div class="form-group">
+                    <label for="usuario">Usuario</label>
+                    <input type="text" class="form-control" id="usuario" name="usuario" required>
+                </div>
+                <div class="form-group">
+                    <label for="contrasena">Contraseña</label>
+                    <input type="password" class="form-control" id="contrasena" name="contrasena" required>
+                </div>
+                <button type="submit" class="btn">Ingresar</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

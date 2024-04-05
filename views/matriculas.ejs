@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrículas</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa:wght@300;500&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&family=Nunito:wght@900&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            background-color: #f8f9fa;
+        }
+
+        .card {
+            margin: auto;
+            margin-top: 2.5%;
+            max-width: 600px;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .card h1 {
+            color: #9FC7AA; /* Cambiar color del título */
+            font-weight: bold;
+        }
+
+        h4{
+            padding-top: 10px;
+        }
+
+        .btn{
+            width: 100%; /* Botón ocupa todo el ancho */
+            background-color: #9FC7AA;
+            color: #000;
+            border: 0;
+        }
+        .btn:hover{
+            background-color: #000;
+            color: beige;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        #curso {
+            background-color: #f8f9fa; /* Color de fondo personalizado */
+        }
+        </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1 class="text-center">Sistema de Matrículas</h1>
+        <hr>
+
+        <h4>Seleccione un curso:</h4>
+        <form action="/confirmacion" method="post" onsubmit="return validarFormulario()">
+            <div class="form-group">
+                <label for="curso">Curso:</label>
+                <select class="form-control" id="curso" name="curso">
+                    <option value="Java">Java</option>
+                    <option value="PHP">PHP</option>
+                    <option value=".NET">.NET</option>
+                </select>
+            </div>
+
+            <h4>Selección de Módulos</h4>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="basico" name="modulo[]" value="Basico">
+                <label class="form-check-label" for="basico">Básico</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="intermedio" name="modulo[]" value="Intermedio">
+                <label class="form-check-label" for="intermedio">Intermedio</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="avanzado" name="modulo[]" value="Avanzado">
+                <label class="form-check-label" for="avanzado">Avanzado</label>
+            </div>
+
+            <h4>Seleccione un medio de pago:</h4>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="medioPago" id="tarjetaCredito"
+                    value="Tarjeta de crédito" required>
+                <label class="form-check-label" for="tarjetaCredito">Tarjeta de crédito</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="medioPago" id="efectivo" value="Pago en efectivo"
+                    required>
+                <label class="form-check-label" for="efectivo">Pago en efectivo</label>
+            </div>
+
+            <button type="submit" class="btn btn-block mt-3">Confirmar Matrícula</button>
+
+        </form>
+    </div>
+
+    <script>
+        function validarFormulario() {
+            var modulosSeleccionados = document.querySelectorAll('input[name="modulo[]"]:checked');
+            if (modulosSeleccionados.length === 0) {
+                alert('Por favor, seleccione al menos un módulo.');
+                return false; // Evita que el formulario se envíe si no se selecciona ningún módulo
+            }
+            return true; // Envía el formulario si al menos un módulo ha sido seleccionado
+        }
+    </script>
+
+</body>
+
+</html>

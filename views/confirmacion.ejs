@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Confirmación de Matrícula</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa:wght@300;500&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&family=Nunito:wght@900&family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        h1 {
+            color: #9FC7AA;
+            /* Cambiar color del título */
+            font-weight: bold;
+            padding-top: 20px;
+        }
+
+        .card1 {
+            border: 1px solid #9FC7AA;
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.1);
+            margin: 25px;
+        }
+
+        .card2{
+            background-color: #ccebd5; /* Fondo personalizado */
+            border-radius: 25px;
+            padding: 25px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">Confirmación de Matrícula</h1>
+        <hr>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card1">
+                    <div class="card-body">
+                        <h4 class="card-title">Curso seleccionado:</h4>
+                        <p class="card-text"><strong>Curso:</strong>
+                            <%= curso %>
+                        </p>
+
+                        <h4 class="card-title">Módulos seleccionados:</h4>
+                        <ul class="card-text">
+                            <% for(var i=0; i<modulos.length; i++) { %>
+                                <li>
+                                    <%= modulos[i] %>
+                                </li>
+                                <% } %>
+                        </ul>
+
+                        <h4 class="card-title">Medio de pago seleccionado:</h4>
+                        <p class="card-text"><strong>Medio de Pago:</strong>
+                            <%= medioPago %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card2">
+                    <h4>Datos de confirmación:</h4>
+                    <p>¡Su matrícula ha sido confirmada! Los siguientes son los detalles de su matrícula:</p>
+
+                    <ul>
+                        <li><strong>Curso:</strong>
+                            <%= curso %>
+                        </li>
+                        <li><strong>Medio de Pago:</strong>
+                            <%= medioPago %>
+                        </li>
+                        <li> <strong> Módulos:</strong>
+                            <ul>
+                                <% for(var i=0; i<modulos.length; i++) { %>
+                                    <li>
+                                        <%= modulos[i] %>
+                                    </li>
+                                    <% } %>
+                            </ul>
+
+                        </li>
+                    </ul>
+
+                    <% for(var i=0; i<modulos.length; i++) { %>
+                        <h5>Detalle para <%= modulos[i] %>:</h5>
+                        <p><strong>Total sin descuento:</strong> S/ <%= precioPorModulo.toFixed(2) %>
+                        </p>
+                        <% if(medioPago==='Pago en efectivo' ) { %>
+                            <p><strong>Total con descuento (10% de descuento):</strong> S/ <%= (precioPorModulo *
+                                    0.9).toFixed(2) %>
+                            </p>
+                            <% } %>
+                                <% } %>
+                                    <h4>Pago final:</h4>
+                                    <p><strong>Total a pagar:</strong> S/ <%= pagoFinal.toFixed(2) %>
+                                    </p>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
